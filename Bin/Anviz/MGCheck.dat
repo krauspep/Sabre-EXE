@@ -1,0 +1,16 @@
+[OPTIONS]
+
+Selected_Dept=head office
+Selected_User=0
+Selected_FromDate=2006-06-22
+Selected_EndDate=2006-06-22
+
+
+[SYSCONTROL]
+
+Language=2
+
+TransmitDelay=500
+ThreadDelay=30
+
+DBConnection=

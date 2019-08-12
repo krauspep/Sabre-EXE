@@ -1,0 +1,15 @@
+<div id="attlog_index">
+  <h1>Logs Admin</h1>
+  
+  <h3>Choose a log file</h3>
+  
+  {{#files}}
+  <p>
+	<a href="/sabre/logs/view/{{name}}" class="btn btn-primary">{{name}}</a>
+  </p>
+  {{/files}}
+  
+  
+  {{file_list}}
+  
+</div>

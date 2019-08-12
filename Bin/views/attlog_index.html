@@ -1,0 +1,66 @@
+<div id="attlog_index">
+  <h1>Clockings Admin</h1>
+  
+  <h3>Summary</h3>
+  
+  <table class="table table-condensed table-bordered table-striped">
+    <thead>
+	  <tr>
+	    <th>Status</th>
+        <th>Description</th>
+		<th>Number Records</th>		
+      </tr>		
+	</thead>
+	<tbody>
+      {{#Summary}}
+      <tr>
+        <td>{{payroll_status}}</td>
+		<td>{{description}}</td>
+		<td>{{NumRecords}}</td>		
+		<td>
+			<a href='/sabre/attlog/status/{{payroll_status}}'>View</a>
+		</td>
+      </tr>  
+      {{/Summary}}
+    </tbody>
+  </table>	
+  
+  <P>
+    <a href='/sabre/attlog/all' class='btn btn-default'>View All</a>
+  </P>
+  
+    {{StatusID}}
+  
+  <h3>Last 100 Clockings</h3>
+  <table class="table table-condensed table-bordered table-striped">
+    <thead>
+	  <tr>
+	    <th>#</th>
+        <th>Device</th>
+		<th>Clocking Time</th>
+		<th>Type</th>
+		<th>Enroll ID</th>
+		<th>Collected Time</th>		
+		<th>Status</th>
+		<th></th>
+      </tr>		
+	</thead>
+	<tbody>
+      {{#AttLog}}
+      <tr>
+        <td>{{ID}}</td>
+		<td>
+		<a href="/sabre/device/view/{{device_id}}">{{device_id}} {{unique_id}}</a>
+		</td>
+		<td>{{log_timestamp}}</td>
+		<td>{{log_type}}</td>
+		<td>{{enroll_id}}</td>
+		<td>{{inserted_timestamp}}</td>
+		<td>{{status_desc}}<br>{{payroll_feedback}}</td>
+		<td><a href="/sabre/attlog/resetstatus/{{ID}}" class="btn btn-mini btn-info">Reset</a></td>
+      </tr>  
+      {{/AttLog}}
+    </tbody>
+  </table>	
+  
+</div>

@@ -1,0 +1,35 @@
+<div id="attlog_index">
+  <h1>View All Clockings</h1>
+  
+  <p>
+    <a href="/sabre/attlog" class="btn btn-success">Back to Clockings Admin</a>
+  </p>
+  
+  
+  <table class="table table-condensed table-bordered table-striped">
+    <thead>
+	  <tr>
+	    <th>#</th>
+        <th>Device</th>
+		<th>Clocking Time</th>
+		<th>Type</th>
+		<th>Enroll ID</th>
+		<th>Collected Time</th>
+		<th></th>
+      </tr>		
+	</thead>
+	<tbody>
+      {{#AttLog}}
+      <tr>
+        <td>{{ID}}</td>
+		<td>{{device_id}} {{unique_id}}</td>
+		<td>{{log_timestamp}}</td>
+		<td>{{log_type}}</td>
+		<td>{{enroll_id}}</td>
+		<td>{{inserted_timestamp}}</td>
+		<td><a href="/sabre/attlog/resetstatus/{{ID}}" class="btn btn-mini btn-info">Reset</a>
+      </tr>  
+      {{/AttLog}}
+    </tbody>
+  </table>	
+</div>

@@ -1,0 +1,52 @@
+<div id="device_view">
+  <h1>View Device {{DeviceID}}</h1>
+  
+  <p>
+	<a href="/sabre/device/" class="btn btn-success"> &lt; Back To Device Admin</a>
+  </p>
+
+  <table class="table table-bordered table-condensed table-striped">
+    <tr>
+	  <th>ID</th>
+	  <td>{{Device.id}}</td>
+	</tr>
+    <tr>
+	  <th>Unique ID</th>
+	  <td>{{Device.unique_id}}</td>
+	</tr>
+	<tr>
+	  <th>Location</th>
+	  <td>{{Device.host}}:{{Device.port}}</td>
+	</tr>
+	<tr>
+	  <th>Type</th>
+	  <td>{{Device.commtypetext}}</td>
+	</tr>
+
+	<tr>
+	  <th>Status</th>
+	  <td>
+		{{Device.status}}
+	  </td>
+	</tr>
+	<tr>
+	  <th>Last Action</th>
+      <td>{{Device.actionstatus}}</td>
+	</tr>
+	<tr>
+	  <th>Description</th>
+	  <td>{{Device.description}}</td>
+	</tr>
+  </table>
+
+  <div class="btn-group">
+  	<a href="/sabre/device/stopcollection/{{Device.ID}}" 	  class="btn btn-primary">Stop Collection</a>
+  	<a href="/sabre/device/startcollection/{{Device.ID}}" 	class="btn btn-primary">Start Collection</a>
+  	<a href="/sabre/device/connect/{{Device.ID}}" 			    class="btn btn-primary">Connect</a>
+  	<a href="/sabre/device/disconnect/{{Device.ID}}" 		    class="btn btn-primary">Disconnect</a>
+  </div>
+  
+  <div class="btn-group">
+    <a href="/sabre/attlog/device/{{Device.ID}}"  class="btn btn-success">View Clockings</a>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="events_index">
+  <h1>Event Viewer</h1>
+  
+  <h3>All Events</h3>
+  <a href="/sabre/events/" class="btn btn-primary">Back to Last 50</a>
+  
+  <table class="table table-bordered table-condensed table-striped">
+	<thead>
+	  <tr>
+	    <th>#</th>
+		<th>Timestamp</th>
+		<th>Event Message</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  {{#Events}}
+	  <tr>
+		<td>{{id}}</td>
+		<td>{{timestamp}}</td>
+		<td>{{message}}</td>
+	  </tr>
+	  {{/Events}}
+	</tbody>
+  </table>
+  
+</div>

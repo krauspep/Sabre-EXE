@@ -1,0 +1,39 @@
+<div id="device_index">
+	<h1>Device Admin</h1>
+	
+	
+	<table class="table table-bordered table-striped table-condensed">
+	  <thead>
+		<tr>
+		  <th>DeviceID</th>
+		  <th>Unique ID</th>
+		  <th>Device Type</th>
+		  <th>Device Location</th>
+		  <th>Status</th>
+		</tr>
+	  </thead>
+	  <tboady>
+		{{#Devices}}
+		<tr>
+			<td>{{ID}}</td>
+			<td>{{unique_id}}</td>
+			<td>{{commtypetext}}</td>
+			<td>
+				Location : <b>{{host}}:{{port}}</b> <br>
+				Serial : <b>{{serial_no}}</b>
+				
+			</td>
+			<td><b>{{status}}</b><br>{{actionstatus}}</td>			
+			<td>
+				<a href="/sabre/device/view/{{ID}}" class="btn btn-danger">View</a>
+			</td>
+		</tr>
+		{{/Devices}}
+	  </tbody>
+	</table>
+	
+	<div class="btn-group">
+		<a href="/sabre/device/refreshfrompayroll" class="btn btn-primary">Refresh from Payroll</a>
+	</div>
+	
+</div>
