@@ -1,0 +1,41 @@
+[CONFIG]
+SystemName=Time And Attendance
+ClockCardSystem=F4
+
+;********** Database **********
+NetworkProtocol=LOCAL
+ServerName=127.0.0.1
+DatabaseName=PAYROLL_DATA.FDB
+MapDrive=C:
+;******************************
+
+;************************ Paths ****************************
+DatabasePath=C:\Program Files\247Software\Sabre\Data
+DeviceImagePath=C:\Program Files\247Software\Sabre\Data\Devices
+ScriptPath=C:\Program Files\247Software\Sabre\Data\Scripts
+ImportPath=C:\Program Files\247Software\Sabre\ExportData\iGuardAccessLog.csv
+FPTemplatePath=C:\Program Files\247Software\Sabre\FPTemplate
+FPTemplateImagePath=C:\Program Files\247Software\Sabre\FPTemplate\Image
+IDImagePath=C:\Program Files\247Software\Sabre\Data\Image
+TrainingVideoPath=C:\Program Files\247Software\Sabre\Training
+BackupPath=C:\Program Files\247Software\Sabre\Data\Backup
+InterbasePath=C:\Program Files\borland\interbase\Bin
+FirmwarePath=C:\Program Files\247Software\Sabre\Bin
+SkinPath=C:\Program Files\247Software\Sabre\Skins
+FaceTemplatePath=C:\Program Files\247Software\Sabre\FaceTemplate
+FaceTemplateImagePath=C:\Program Files\247Software\Sabre\FaceTemplate\Image
+;**********************************************************
+
+VideoDriver=0
+
+BackgroundBMP=C:\Program Files\247Software\Sabre\Data\Image
+PayslipBMP=wimpy.jpg
+DeviceType=clockcard
+LoginCompany=
+TimeZones=10
+RegisterEmailAddress=peter@247tech.co.za
+UseUareU=Yes
+UseSkin=No
+
+[DEVICEREADERCONFIG]
+ReadCompany=2

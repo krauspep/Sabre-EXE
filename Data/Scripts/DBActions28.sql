@@ -1,0 +1,20 @@
+alter table RESIDENT
+add TIME_ZONE DM_SMALLINT;
+commit;
+
+alter table EMPLOYEE
+add TIME_ZONE DM_SMALLINT;
+commit;
+
+alter table SYSTEM_PARAMETER
+add BACKGROUND DM_CHAR;
+commit;
+
+alter table SYSTEM_PARAMETER
+add GRADIENT_COLOUR DM_COLOUR_NAME;
+commit;
+
+alter table SYSTEM_PARAMETER
+add SOLID_COLOUR DM_COLOUR_NAME;
+commit;
+

@@ -1,0 +1,71 @@
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL FOR PUPIL
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_KEY is null)
+  then begin
+         new.PUPIL_KEY = gen_id(PUPIL_GEN, 1);
+       end
+end^
+SET TERM ; ^
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL_DEVICE_LINK FOR PUPIL_DEVICE_LINK
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_DEVICE_LINK_KEY is null)
+  then begin
+         new.PUPIL_DEVICE_LINK_KEY = gen_id(PUPIL_DEVICE_LINK_GEN, 1);
+       end
+end^
+SET TERM ; ^
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL_TIME_ZONE FOR PUPIL_TIME_ZONE
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_TIME_ZONE_KEY is null)
+  then begin
+         new.PUPIL_TIME_ZONE_KEY = gen_id(PUPIL_TIME_ZONE_GEN, 1);
+       end
+end^
+SET TERM ; ^
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL_GRADE FOR PUPIL_GRADE
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_GRADE_KEY is null)
+  then begin
+         new.PUPIL_GRADE_KEY = gen_id(PUPIL_GRADE_GEN, 1);
+       end
+end^
+SET TERM ; ^
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL_RELATIONSHIP FOR PUPIL_RELATIONSHIP
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_RELATIONSHIP_KEY is null)
+  then begin
+         new.PUPIL_RELATIONSHIP_KEY = gen_id(PUPIL_RELATIONSHIP_GEN, 1);
+       end
+end^
+SET TERM ; ^
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PUPIL_NOTE FOR PUPIL_NOTE
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PUPIL_NOTE_KEY is null)
+  then begin
+         new.PUPIL_NOTE_KEY = gen_id(PUPIL_NOTE_GEN, 1);
+       end
+end^
+SET TERM ; ^

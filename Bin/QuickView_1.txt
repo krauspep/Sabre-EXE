@@ -1,0 +1,8 @@
+List Of Employees Registered On Device At Front Door
+----------------------------------------------------
+1     Shegedi      1     Yes General User 0              
+2     Mfundisi     2     Yes General User 0              
+3     Frans        0000  Yes General User 0              
+4     John         0000  Yes General User 0              
+5     Jotham       0000  Yes General User 0              
+ 

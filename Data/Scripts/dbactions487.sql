@@ -1,0 +1,1 @@
+alter table EMPLOYEE_ATTENDANCE_DATA add System_generated_PPH_Minutes DM_INTEGER

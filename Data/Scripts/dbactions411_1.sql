@@ -1,0 +1,15 @@
+SET TERM ^ ;
+
+CREATE TRIGGER TR_COST_CENTER FOR COST_CENTER
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.COST_CENTER_KEY is null)
+  then begin
+         new.COST_CENTER_KEY = gen_id(COST_CENTER_GEN, 1);
+       end
+end^
+
+SET TERM ; ^
+

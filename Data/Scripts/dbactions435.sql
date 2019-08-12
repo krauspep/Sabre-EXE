@@ -1,0 +1,5 @@
+ALTER TABLE Book_Configuration ADD SITE_KEY DM_KEY_N1
+
+ALTER TABLE Bio_PC_Configuration ADD SITE_KEY DM_KEY_N1
+
+ALTER TABLE Anviz_Configuration ADD SITE_KEY DM_KEY_N1

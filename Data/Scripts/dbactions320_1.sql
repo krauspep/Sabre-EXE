@@ -1,0 +1,12 @@
+SET TERM ^ ;
+CREATE TRIGGER TR_CAMERA_MAKE FOR CAMERA_MAKE
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.CAMERA_MAKE_KEY is null)
+  then begin
+         new.CAMERA_MAKE_KEY = gen_id(CAMERA_MAKE_GEN, 1);
+       end
+end^
+SET TERM ; ^
+

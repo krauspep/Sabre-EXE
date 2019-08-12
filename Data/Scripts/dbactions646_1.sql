@@ -1,0 +1,14 @@
+SET TERM ^ ;
+
+CREATE TRIGGER TR_ACCSYS_COMPANY FOR ACCSYS_COMPANY
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.ACCSYS_COMPANY_KEY is null)
+  then begin
+         new.ACCSYS_COMPANY_KEY = gen_id(ACCSYS_COMPANY_GEN, 1);
+       end
+end^
+
+SET TERM ; ^

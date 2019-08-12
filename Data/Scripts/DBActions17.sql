@@ -1,0 +1,4 @@
+alter table DEVICE_CONFIGURATION
+add STATUS_SOURCE DM_CHAR;
+commit;
+

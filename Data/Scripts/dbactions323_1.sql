@@ -1,0 +1,12 @@
+SET TERM ^ ;
+CREATE TRIGGER TR_DEVICE_GROUP FOR DEVICE_GROUP
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.DEVICE_GROUP_KEY is null)
+  then begin
+         new.DEVICE_GROUP_KEY = gen_id(DEVICE_GROUP_GEN, 1);
+       end
+end^
+SET TERM ; ^
+

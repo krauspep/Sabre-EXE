@@ -1,0 +1,2 @@
+UPDATE EMPLOYEE SET E_M = 'M'
+

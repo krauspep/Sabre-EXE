@@ -1,0 +1,15 @@
+SET TERM ^ ;
+
+CREATE TRIGGER TR_DEVICE_ZONE FOR DEVICE_ZONE
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.DEVICE_ZONE_KEY is null)
+  then begin
+         new.DEVICE_ZONE_KEY = gen_id(DEVICE_ZONE_GEN, 1);
+       end
+end^
+
+SET TERM ; ^
+

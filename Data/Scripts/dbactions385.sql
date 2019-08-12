@@ -1,0 +1,8 @@
+UPDATE EMPLOYEE SET OPEN_SHIFT = 0;
+
+
+
+
+
+
+

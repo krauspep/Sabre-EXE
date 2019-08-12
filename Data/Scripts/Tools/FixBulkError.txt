@@ -1,0 +1,3 @@
+update rdb$fields set
+rdb$null_flag = NULL
+where rdb$field_name = 'DM_BOOLEAN';

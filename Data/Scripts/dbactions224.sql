@@ -1,0 +1,5 @@
+UPDATE COMPANY SET COMPANY_LOGO_DESKTOP = '* No IMage *';
+
+
+
+

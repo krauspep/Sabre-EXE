@@ -1,0 +1,44 @@
+SET TERM ^ ;
+
+CREATE TRIGGER TR_CRIMINAL_RECORD FOR CRIMINAL_RECORD
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.CRIMINAL_RECORD_KEY is null)
+  then begin
+         new.CRIMINAL_RECORD_KEY = gen_id(CRIMINAL_RECORD_GEN, 1);
+       end
+end^
+
+SET TERM ; ^
+
+SET TERM ^ ;
+
+CREATE TRIGGER TR_CRIME_TYPE FOR CRIME_TYPE
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.CRIME_TYPE_KEY is null)
+  then begin
+         new.CRIME_TYPE_KEY = gen_id(CRIME_TYPE_GEN, 1);
+       end
+end^
+
+SET TERM ; ^
+
+SET TERM ^ ;
+
+CREATE TRIGGER TR_CRIME_LOCALITY FOR CRIME_LOCALITY
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.CRIME_LOCALITY_KEY is null)
+  then begin
+         new.CRIME_LOCALITY_KEY = gen_id(CRIME_LOCALITY_GEN, 1);
+       end
+end^
+
+SET TERM ; ^

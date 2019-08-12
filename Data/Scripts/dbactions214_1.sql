@@ -1,0 +1,11 @@
+SET TERM ^ ;
+CREATE TRIGGER TR_SHIFT_RATE_LINK FOR SHIFT_RATE_LINK
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.SHIFT_RATE_LINK_KEY is null)
+  then begin
+         new.SHIFT_RATE_LINK_KEY = gen_id(SHIFT_RATE_LINK_GEN, 1);
+       end
+end^
+SET TERM ; ^

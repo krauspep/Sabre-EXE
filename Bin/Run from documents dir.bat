@@ -1,0 +1,1 @@
+for /D %%f in (*) do rename "%%f" "IND_%%~nxf"

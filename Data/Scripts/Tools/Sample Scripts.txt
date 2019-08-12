@@ -1,0 +1,14 @@
+[Info to remember]
+Backup befor you do anything...
+Remember to tick after run to exicute
+
+[This is to change door open to yes]
+Update employee_device_link set OPEN_DOOR = 1
+
+[To delete delted employees]
+Delete from EMPLOYEE
+where deleted = 1
+
+[from 2310 script 483 changes database that you cant use older exe this script will fix that problem if you want to use an older exe than 2310]
+ALTER TABLE RESIDENT ADD ANTI_PASS_BACK DM_BOOLEAN;
+ALTER TABLE RESIDENT ADD LAST_DEVICE_KEY DM_KEY;

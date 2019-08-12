@@ -1,0 +1,1 @@
+Update Employee_Device_Link Set Open_Door = 1;

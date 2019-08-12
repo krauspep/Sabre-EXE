@@ -1,0 +1,11 @@
+SET TERM ^ ;
+CREATE TRIGGER TR_EMAIL_IN_OUT  FOR EMAIL_IN_OUT
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.EMAIL_IN_OUT_KEY is null)
+  then begin
+         new.EMAIL_IN_OUT_KEY = gen_id(EMAIL_IN_OUT_GEN, 1);
+       end
+end^
+SET TERM ; ^

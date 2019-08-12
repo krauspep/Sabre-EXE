@@ -1,0 +1,13 @@
+alter table DEPARTMENT
+DROP TERMINAL_KEY;
+
+commit;
+
+alter table DEVICE_LOCATION
+DROP DEPARTMENT_KEY;
+
+commit;
+
+alter table SYSTEM_PARAMETER
+add AUTO_INC_ENROLL_ID DM_BOOLEAN;
+commit;

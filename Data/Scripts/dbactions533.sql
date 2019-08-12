@@ -1,0 +1,3 @@
+insert into PAYROLL_EXPORT_TEMPLATE values (7,7,'NT,OT1,OT2,SUN,NSA,SA');
+
+insert into PAYROLL_EXPORT_TEMPLATE values (8,8,'NT,OT1,OT2,WPPH,NSA,SA');

@@ -1,0 +1,211 @@
+alter table COMPANY
+add FINANCIAL_YEAR_START_MONTH DM_SMALLINT;
+commit;
+
+alter table SYSTEM_PARAMETER
+add BACKGROUND_TYPE DM_CHAR;
+commit;
+
+alter table SYSTEM_PARAMETER
+drop BACKGROUND;
+commit;
+
+alter table SYSTEM_PARAMETER
+drop BACKGROUND_colour;
+commit;
+
+alter table SYSTEM_PARAMETER
+add GRADIENT_COLOUR_TO DM_COLOUR_NAME;
+commit;
+
+update SYSTEM_PARAMETER
+Set BACKGROUND_TYPE = 'T';
+COMMIT;
+
+alter table SYSTEM_COLOUR
+add NO_WORK_DAY_COLOUR DM_COLOUR_NAME;
+COMMIT;
+
+alter table SYSTEM_COLOUR
+add NO_WORK_DAY_FONT_COLOUR DM_COLOUR_NAME;
+COMMIT;
+
+
+/**** DO UP TO HERE FIRST *****/
+
+
+DROP TABLE PAYROLL_CALCULATION_DATA;
+COMMIT;
+
+CREATE TABLE PAYROLL_CALCULATION_DATA (
+    PAYROLL_CALCULATION_DATA_KEY     DM_KEY NOT NULL,
+    PAYROLL_CALCULATION_CONTROL_KEY  DM_KEY NOT NULL,
+    EMPLOYEE_KEY                     DM_KEY NOT NULL,
+    PAY_FREQUENCY                    DM_CHAR,
+    TAX_PERIOD                       DM_SMALLINT,
+    TAX_YEAR                         DM_SMALLINT,
+    SALARY_AMOUNT                    DM_CURRENCY,
+    PAYE                             DM_CURRENCY,
+    NETT_PAY                         DM_CURRENCY,
+    EARNING_TAXABLE                  DM_CURRENCY,
+    EARNING_NON_TAXABLE              DM_CURRENCY,
+    DEDUCT_TAX_DEDUCTABLE            DM_CURRENCY,
+    DEDUCT_NON_TAX_DEDUCTABLE        DM_CURRENCY,
+    PROCESSED                        DM_BOOLEAN,
+    DELETED                          DM_BOOLEAN
+);
+
+ALTER TABLE PAYROLL_CALCULATION_DATA ADD PRIMARY KEY (PAYROLL_CALCULATION_DATA_KEY);
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PAYROLL_CALCULATION_DATA FOR PAYROLL_CALCULATION_DATA
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PAYROLL_CALCULATION_DATA_KEY is null)
+  then begin
+         new.PAYROLL_CALCULATION_DATA_KEY = gen_id(PAYROLL_CALCULATION_DATA_GEN, 1);
+       end
+end
+^
+SET TERM ; ^
+
+CREATE GENERATOR EARNING_YTD_GEN;
+COMMIT;
+
+CREATE TABLE EARNING_YTD (
+    EARNING_YTD_KEY                  DM_KEY NOT NULL,
+    EMPLOYEE_KEY                     DM_KEY NOT NULL,
+    EMPLOYEE_EARNING_KEY             DM_KEY NOT NULL,
+    TAX_YEAR                         DM_SMALLINT,
+    YTD_TOTAL                        DM_CURRENCY,    
+    DELETED                          DM_BOOLEAN
+);
+
+ALTER TABLE EARNING_YTD ADD PRIMARY KEY (EARNING_YTD_KEY);
+
+SET TERM ^ ;
+CREATE TRIGGER TR_EARNING_YTD FOR EARNING_YTD
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.EARNING_YTD_KEY is null)
+  then begin
+         new.EARNING_YTD_KEY = gen_id(EARNING_YTD_GEN, 1);
+       end
+end
+^
+SET TERM ; ^
+
+
+
+CREATE GENERATOR DEDUCTION_YTD_GEN;
+COMMIT;
+
+CREATE TABLE DEDUCTION_YTD (
+    DEDUCTION_YTD_KEY                DM_KEY NOT NULL,
+    EMPLOYEE_KEY                     DM_KEY NOT NULL,
+    EMPLOYEE_DEDUCTION_KEY           DM_KEY NOT NULL,
+    TAX_YEAR                         DM_SMALLINT,
+    YTD_TOTAL                        DM_CURRENCY,    
+    DELETED                          DM_BOOLEAN
+);
+
+ALTER TABLE DEDUCTION_YTD ADD PRIMARY KEY (DEDUCTION_YTD_KEY);
+
+SET TERM ^ ;
+CREATE TRIGGER TR_DEDUCTION_YTD FOR DEDUCTION_YTD
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.DEDUCTION_YTD_KEY is null)
+  then begin
+         new.DEDUCTION_YTD_KEY = gen_id(DEDUCTION_YTD_GEN, 1);
+       end
+end
+^
+SET TERM ; ^
+
+
+CREATE GENERATOR SALARY_YTD_GEN;
+COMMIT;
+
+CREATE TABLE SALARY_YTD (
+    SALARY_YTD_KEY                   DM_KEY NOT NULL,
+    EMPLOYEE_KEY                     DM_KEY NOT NULL,
+    TAX_YEAR                         DM_SMALLINT,
+    YTD_TOTAL                        DM_CURRENCY,    
+    DELETED                          DM_BOOLEAN
+);
+
+ALTER TABLE SALARY_YTD ADD PRIMARY KEY (SALARY_YTD_KEY);
+
+SET TERM ^ ;
+CREATE TRIGGER TR_SALARY_YTD FOR SALARY_YTD
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.SALARY_YTD_KEY is null)
+  then begin
+         new.SALARY_YTD_KEY = gen_id(SALARY_YTD_GEN, 1);
+       end
+end
+^
+SET TERM ; ^
+
+
+CREATE GENERATOR PAYE_YTD_GEN;
+COMMIT;
+
+CREATE TABLE PAYE_YTD (
+    PAYE_YTD_KEY                     DM_KEY NOT NULL,
+    EMPLOYEE_KEY                     DM_KEY NOT NULL,
+    TAX_YEAR                         DM_SMALLINT,
+    YTD_TOTAL                        DM_CURRENCY,    
+    DELETED                          DM_BOOLEAN
+);
+
+ALTER TABLE PAYE_YTD ADD PRIMARY KEY (PAYE_YTD_KEY);
+
+SET TERM ^ ;
+CREATE TRIGGER TR_PAYE_YTD FOR PAYE_YTD
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.PAYE_YTD_KEY is null)
+  then begin
+         new.PAYE_YTD_KEY = gen_id(PAYE_YTD_GEN, 1);
+       end
+end
+^
+SET TERM ; ^
+
+alter table PayRoll_Calculation_Control
+add PROCESS_DATE DM_DATE;
+COMMIT;
+
+
+alter table EMPLOYEE
+add SALARY_YTD DM_CURRENCY;
+COMMIT;
+
+alter table EMPLOYEE
+add UIF_YTD DM_CURRENCY;
+COMMIT;
+
+alter table EMPLOYEE
+add PAYE_YTD DM_CURRENCY;
+COMMIT;
+
+Update Employee 
+Set SALARY_YTD = 0;
+commit;
+
+Update Employee 
+Set UIF_YTD = 0;
+commit;
+
+Update Employee 
+Set PAYE_YTD = 0;
+commit;
+

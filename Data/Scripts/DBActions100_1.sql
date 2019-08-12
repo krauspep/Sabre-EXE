@@ -1,0 +1,18 @@
+SET TERM ^ ;
+
+CREATE TRIGGER "TR_SHIFT_DATE_DEFINE" FOR "SHIFT_DATE_DEFINE" 
+ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.SHIFT_DATE_DEFINE_KEY is null)
+  then begin
+         new.SHIFT_DATE_DEFINE_KEY = gen_id(SHIFT_DATE_DEFINE_GEN, 1);
+       end
+end ^
+
+
+
+
+
+
+

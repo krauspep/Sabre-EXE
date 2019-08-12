@@ -1,0 +1,14 @@
+SET TERM ^ ;
+
+CREATE TRIGGER TR_VIP_COMPANY FOR VIP_COMPANY
+ACTIVE BEFORE INSERT
+POSITION 1
+AS
+begin
+  if (new.VIP_COMPANY_KEY is null)
+  then begin
+         new.VIP_COMPANY_KEY = gen_id(VIP_COMPANY_GEN, 1);
+       end
+end^
+
+SET TERM ; ^

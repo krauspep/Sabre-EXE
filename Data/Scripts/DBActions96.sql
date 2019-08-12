@@ -1,0 +1,8 @@
+CREATE TABLE "DEVICE_ENROLL_ID" 
+(
+  "ENROLL_ID"          "DM_INTEGER",
+  "DEVICE_ID_NAME"     "DM_DEVICE_ID_NAME",
+  "OPERATOR_KEY"       "DM_KEY",
+  "IS_SELECTED"        "DM_FALSE",
+  "DELETED"            "DM_BOOLEAN"
+);

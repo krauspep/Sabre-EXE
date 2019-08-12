@@ -1,0 +1,15 @@
+CREATE GENERATOR DEVICE_TYPE_GEN;
+
+CREATE TRIGGER TR_DEVICE_TYPE FOR DEVICE_TYPE ACTIVE BEFORE INSERT POSITION 0
+AS
+begin
+  if (new.DEVICE_TYPE_KEY is null)
+  then begin
+         new.DEVICE_TYPE_KEY = gen_id(DEVICE_TYPE_GEN, 1);
+       end
+end
+
+
+
+
+

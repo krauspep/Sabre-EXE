@@ -1,0 +1,48 @@
+insert into DEDUCTION_TEMPLATE(DEDUCTION_TEMPLATE_KEY, DEDUCTION_NAME, SARS_CODE, 
+                               DEDUCTION_AMT_TYPE, AMOUNT_OR_PERCENT,
+                               TAX_DEDUCTABLE, DELETED)
+Values(1, 'Provident Fund', '', 'P', 0.00, 1, 0);
+
+insert into DEDUCTION_TEMPLATE(DEDUCTION_TEMPLATE_KEY, DEDUCTION_NAME, SARS_CODE, 
+                               DEDUCTION_AMT_TYPE, AMOUNT_OR_PERCENT,
+                               TAX_DEDUCTABLE, DELETED)
+Values(2, 'Mortality Fund', '', 'F', 0.00, 1, 0);
+
+insert into DEDUCTION_TEMPLATE(DEDUCTION_TEMPLATE_KEY, DEDUCTION_NAME, SARS_CODE, 
+                               DEDUCTION_AMT_TYPE, AMOUNT_OR_PERCENT,
+                               TAX_DEDUCTABLE, DELETED)
+Values(3, 'Council Levies', '', 'F', 0.00, 1, 0);
+
+insert into EARNING_TEMPLATE(EARNING_TEMPLATE_KEY, EARNING_NAME, SARS_CODE,
+                             EARNING_AMT_TYPE, AMOUNT_OR_PERCENT,
+                             TAX_DEDUCTABLE, DELETED)
+Values (1, 'Holiday Pay', '', 'P', 0.00, 0, 0);
+commit;
+
+alter table SYSTEM_PARAMETER
+add HOLIDAY_PAY_PERC_1 DM_PERCENT;
+COMMIT;
+
+alter table SYSTEM_PARAMETER
+add HOLIDAY_PAY_PERC_2 DM_PERCENT;
+COMMIT;
+
+alter table SYSTEM_PARAMETER
+add HOLIDAY_PAY_PERC_3 DM_PERCENT;
+COMMIT;
+
+update SYSTEM_PARAMETER
+set HOLIDAY_PAY_PERC_1 = 0,
+    HOLIDAY_PAY_PERC_2 = 0,
+    HOLIDAY_PAY_PERC_3 = 0;
+COMMIT;
+
+
+CREATE DOMAIN "DM_COUNCIL_NO" AS VARCHAR(10);
+COMMIT;
+
+ALTER TABLE EMPLOYEE
+ADD COUNCIL_NO DM_COUNCIL_NO;
+COMMIT;
+
+

@@ -1,0 +1,13 @@
+CREATE TABLE ATTENDANCE_EXCEPTION_TEMP_PRINT
+(
+  EMPLOYEE_KEY          DM_KEY,
+  ATTENDANCE_DATE       DM_DATE,
+  SHIFT_IN              DM_TIME_IN_OUT,
+  SHIFT_OUT             DM_TIME_IN_OUT,
+  CLOCK_IN              DM_TIME_IN_OUT,
+  CLOCK_OUT             DM_TIME_IN_OUT,
+  LEAVE_TYPE_KEY        DM_KEY,
+  COMMENT               DM_NAME,
+  OPERATOR_KEY          DM_KEY
+);
+
